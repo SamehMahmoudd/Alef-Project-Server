@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const authorSchema = new mongoose.Schema({
   name: {
@@ -14,10 +14,9 @@ const authorSchema = new mongoose.Schema({
 
 const authorModel = mongoose.model('Author', authorSchema);
 
-authorModel.create({
-  name: 'alaaEllol=>auther',
-  books:['646117922fa6eaa228189305']
-});
-
+// authorModel.create({
+//   name: 'alaaEllol=>auther',
+//   books:['646117922fa6eaa228189305']
+// });
 
 module.exports = authorModel;

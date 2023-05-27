@@ -1,5 +1,5 @@
 const express = require('express');
-var { createAuthor, getAllAuthor, deleteAuthorById, editAuthorById } = require("../Controllers/authController");
+var { createAuthor, getAllAuthor, deleteAuthorById, editAuthorById } = require("../Controllers/authorController");
 var Router = express.Router();
 
 

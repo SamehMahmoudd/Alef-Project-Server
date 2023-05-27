@@ -1,20 +1,28 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv');
 const express = require('express')
+const cors = require('cors')
+dotenv.config(); 
+
+const usersRouter  = require('./routers/usersRouter')
+const authRouter = require('./routers/authRouter')
+const ordersRouter = require('./routers/ordersRouter');
+
+const { extractUser } = require('./middleware');
+
 const app = express()
 
-const users = require('./models/user')
-const books = require('./models/book')
-const orders = require('./models/order')
-const authers = require('./models/auther')
+app.use(express.json())
+app.use(cors())
+
+app.use('/users',usersRouter)
+app.use('/auth', authRouter)
+app.use('/orders', extractUser, ordersRouter)
 
 var connectionString = 'mongodb+srv://ellol:vqnWuRTZlgZ7HhR4@alef-cluster.xt2vp4y.mongodb.net/alef-database';
 mongoose.connect(connectionString).then(() => {
       console.log('Connected to MongoDB Atlas successfully');
 }).catch((error) => console.error(error));
-
-
-
-
 
 
 app.listen(3001,()=>{

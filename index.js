@@ -1,3 +1,9 @@
+
+const mongoose = require('mongoose');
+const express = require('express');
+const app = express();
+
+//Models
 const mongoose = require('mongoose')
 const dotenv = require('dotenv');
 const express = require('express')
@@ -23,7 +29,6 @@ var connectionString = 'mongodb+srv://ellol:vqnWuRTZlgZ7HhR4@alef-cluster.xt2vp4
 mongoose.connect(connectionString).then(() => {
       console.log('Connected to MongoDB Atlas successfully');
 }).catch((error) => console.error(error));
-
 
 app.listen(3001,()=>{
 console.log('Server started successfully');

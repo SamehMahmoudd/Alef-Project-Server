@@ -9,7 +9,7 @@ const orders = require('./models/order');
 const authors = require('./models/author');
 
 
-const AuthorRoutes = require('./Routes/AuthorRoute');
+const AuthorRoutes = require('./Routes/authRouter');
 // const BookRoutes = require('./Routes/BooksRoute');
 
 //middleware

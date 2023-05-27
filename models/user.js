@@ -53,24 +53,6 @@ const userSchema = new mongoose.Schema({
 
 var userModel = mongoose.model('users', userSchema);
 
-// userModel.create({
-//   firstName: "alaa",
-//   lastName: "ellol",
-//   email: "alaaEllol@example.com",
-//   phoneNumber: "0123456789",
-//   password: "123456",
-//   address: "Alaa Mostafa",
-//   image: "https://i.ibb.co/VsgvzJ6/lol.jpg",
-//   country: "Egypt",
-//   subscribe: "false",
-//   orders: [
-//     '646128d106162fc6822ede4d', 
-//   ],
-//   cart: [{
-//     productId: '646128d106162fc6822ede4d', 
-//     quantity: 2
-//     }],
-// });
 module.exports = userModel;
 
 

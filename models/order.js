@@ -16,9 +16,6 @@ const orderSchema = new mongoose.Schema({
   ],
 });
   
-
-
 const orderModel = mongoose.model('Order', orderSchema);
-// const userId = new mongoose.Types.ObjectId();
 
 module.exports = orderModel;

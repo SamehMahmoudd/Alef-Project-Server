@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-import UserModel from './models/user'
+const UserModel = require('./models/user')
 
 const extractToken = (req, res, next) => {
     const token = getTokenFromReq(req);
@@ -10,19 +10,26 @@ const extractToken = (req, res, next) => {
     next();
 }
 
-const extractUser = (req, res, next) => {
+const extractUser = async (req, res, next) => {
     const token = getTokenFromReq(req);
     if(token){
-        const decodedToken = jwt.verify(token, process.env.SECRET);
-        if(decodedToken.id){
-            const user = UserModel.findById(decodedToken.id);
+        try{
+            const decodedToken = jwt.verify(token, process.env.SECRET);
+            if(decodedToken.id){
+            const user = await UserModel.findById(decodedToken.id);
             if(user){
                 req.user = user;
             }else{
                 return res.json({error: 'user not found'}).end()
             }
-        }else{
-            return res.json({error: 'token invalid'}).end()
+            }else{
+                return res.json({error: 'token invalid'}).end()
+            }
+        }catch(err){
+            if(err.name === 'JsonWebTokenError'){
+                console.log(err);
+            }
+            return res.json({error: 'invalid token'}).end();
         }
     }else{
         return res.json({error: 'token not found'}).end()
@@ -40,4 +47,4 @@ const getTokenFromReq = (req) => {
     return null;
 }
 
-export { extractToken, extractUser }
+module.exports = { extractToken, extractUser }

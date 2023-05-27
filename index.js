@@ -6,6 +6,9 @@ dotenv.config();
 
 const usersRouter  = require('./routers/usersRouter')
 const authRouter = require('./routers/authRouter')
+const ordersRouter = require('./routers/ordersRouter');
+
+const { extractUser } = require('./middleware');
 
 const app = express()
 
@@ -14,6 +17,7 @@ app.use(cors())
 
 app.use('/users',usersRouter)
 app.use('/auth', authRouter)
+app.use('/orders', extractUser, ordersRouter)
 
 var connectionString = 'mongodb+srv://ellol:vqnWuRTZlgZ7HhR4@alef-cluster.xt2vp4y.mongodb.net/alef-database';
 mongoose.connect(connectionString).then(() => {

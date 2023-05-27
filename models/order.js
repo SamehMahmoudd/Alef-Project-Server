@@ -21,21 +21,4 @@ const orderSchema = new mongoose.Schema({
 const orderModel = mongoose.model('Order', orderSchema);
 // const userId = new mongoose.Types.ObjectId();
 
-orderModel.create({
-    user: '64601df6792fe33feff1360a',
-    totalPrice: 10003,
-    status: 'pending',
-    items: [
-    {
-        productImage: 'https://example.com/image1.jpg',
-        productTitle: 'nodels',
-        productPrice: 500,
-        quantity: 2   
-    },
-]
-});
-
-
-
 module.exports = orderModel;
-

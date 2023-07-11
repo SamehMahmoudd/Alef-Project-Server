@@ -16,7 +16,7 @@ const usersController = {
     try {
       const count = await userModel.countDocuments({});
       if (count !== 0) {
-        const users = await userModel.find({}, { _id: false });
+        const users = await userModel.find();
         return users
       } return null
     } catch (error) {

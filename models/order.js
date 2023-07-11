@@ -4,14 +4,18 @@ const orderSchema = new mongoose.Schema({
     ref: "User",  
   },
 
-  totalPrice: {type: Number, required: true,},
-  status: { type: String, required: true,  },
+  totalPrice: {type: Number,required: true },
+  status: { type: String, required: true },
+  address: { type: String,  required: true },
   items: [
     {
-      productImage: { type: String, required: true },
-      productTitle: { type: String, required: true },
-      productPrice: { type: Number, required: true },
-      quantity:     { type: Number, required: true },
+      book:{
+         cover_image: { type: String },
+         title: { type: String  },
+         price: { type: Number },
+      },
+      
+      quantity:     { type: Number },
     },
   ],
 });

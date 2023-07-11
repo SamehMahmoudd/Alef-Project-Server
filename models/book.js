@@ -18,7 +18,7 @@ const bookSchema = new mongoose.Schema({
       },
       shipping: {
         type: String,
-        required: true,
+        
       },
       description: {
         type: String,

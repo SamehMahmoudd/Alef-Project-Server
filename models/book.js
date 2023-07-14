@@ -18,7 +18,7 @@ const bookSchema = new mongoose.Schema({
       },
       bookImage:{
         type: String,
-        required: true,
+        
 
       },
       shipping: {

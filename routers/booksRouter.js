@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const {getAllBooks,getBookByID,createNewBook,updateBook,deleteBook}=require('../controllers/bookControllers')
+const {getAllBooks,getBookByID,createNewBook,updateBook,deleteBook}=require('../Controllers/bookControllers')
 
 //get all books
 router.get('/',async(req,res,next)=>{
@@ -37,9 +37,9 @@ router.post('/',async(req,res,next)=>{
 
     try{
       
-        console.log(book);
-        let createdBook=await createNewBook(book)
         
+        let createdBook= await createNewBook(book)
+        console.log(createdBook);
         res.send(`new book created : ${createdBook}`)
     }
     catch(err){

@@ -14,7 +14,12 @@ const bookSchema = new mongoose.Schema({
       },
       publishedYear: {
         type: Number,
+      
+      },
+      bookImage:{
+        type: String,
         required: true,
+
       },
       shipping: {
         type: String,
@@ -34,7 +39,21 @@ const bookSchema = new mongoose.Schema({
       author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Author',
+        required: true,
       },
+
+      category:{
+        type: String,
+        required: true,
+
+      },
+      language:{
+        type: String,
+        
+      },
+      bookFormat:{
+        type: String,
+      }
 },{timestamps:true});
 
 const bookModel = mongoose.model('Book', bookSchema);

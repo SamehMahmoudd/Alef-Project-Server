@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const controllers = require('../Controllers/usersController');
+const controllers = require('../controllers/usersController');
 
 /* -------------------------------------------------------------------------- */
 /*                                listing users                               */

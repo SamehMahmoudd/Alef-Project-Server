@@ -1,60 +1,55 @@
 const mongoose = require('mongoose')
 const bookSchema = new mongoose.Schema({
-    bookTitle: {
-        type: String,
-        required: true,
-      },
-      bookPages: {
-        type: Number,
-        required: true,
-      },
-      price: {
-        type: Number,
-        required: true,
-      },
-      publishedYear: {
-        type: Number,
-      
-      },
-      bookImage:{
-        type: String,
-        
+  bookTitle: {
+    type: String,
+    required: true,
+  },
+  bookPages: {
+    type: Number,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  publishedYear: {
+    type: Number,
 
-      },
-      shipping: {
-        type: String,
-        
-      },
-      description: {
-        type: String,
-      },
-      returnPolicy: {
-        type: String,
-      },
-      stock: {
-        type: Number,
-        required: true,
-        default:2
-      },
-      author: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Author',
-        required: true,
-      },
+  },
+  bookImage: {
+    type: String,
 
-      category:{
-        type: String,
-        required: true,
 
-      },
-      language:{
-        type: String,
-        
-      },
-      bookFormat:{
-        type: String,
-      }
-},{timestamps:true});
+  },
+
+  description: {
+    type: String,
+  },
+
+  stock: {
+    type: Number,
+    required: true,
+    default: 2
+  },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Author',
+    required: true,
+  },
+
+  category: {
+    type: String,
+    required: true,
+
+  },
+  language: {
+    type: String,
+
+  },
+  bookFormat: {
+    type: String,
+  }
+}, { timestamps: true });
 
 const bookModel = mongoose.model('Book', bookSchema);
 

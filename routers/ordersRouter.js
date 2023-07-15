@@ -1,6 +1,6 @@
-var express=require('express')
-var {saveOrder, getOrderById, getAllOrders, EditOrderById,deleteOrder,deleteUserOrder}=require('../controllers/ordersController')
-var router=express.Router()
+var express = require('express')
+var { saveOrder, getOrderById, getAllOrders, EditOrderById, deleteOrder, deleteUserOrder } = require('../controllers/ordersController')
+var router = express.Router()
 
 router.post("/", async (req, res) => {
     var order = req.body
@@ -15,56 +15,56 @@ router.post("/", async (req, res) => {
 
 })
 
-router.patch('/:id',async (req,res)=>{
-    var title=req.body
-    var id=req.params.id
-    try{
-      var edited=await EditOrderById(id,title)
+router.patch('/:id', async (req, res) => {
+    var title = req.body
+    var id = req.params.id
+    try {
+        var edited = await EditOrderById(id, title)
 
         res.json(edited)
-    }catch(e){
+    } catch (e) {
         res.json(e)
     }
 })
 
-router.get('/',async(req,res)=>{
+router.get('/', async (req, res) => {
 
-    try{
+    try {
         orders = await getAllOrders()
         res.json(orders)
-    }catch(e){
+    } catch (e) {
         res.json(e)
     }
 })
 
-router.get('/:id', async(req, res)=> {
+router.get('/:id', async (req, res) => {
     console.log('params', req.params);
-    try{
+    try {
         const order = await getOrderById(req.params.id);
         res.json(order)
-    }catch(e){
+    } catch (e) {
         res.json(e)
     }
 })
 
-router.delete('/:id',async (req,res)=>{
-    var id=req.body.params
-    try{
-        deletedTodo=await deleteOrder(id)
+router.delete('/:id', async (req, res) => {
+    var id = req.body.params
+    try {
+        deletedTodo = await deleteOrder(id)
         res.json("deleted")
-    }catch(e){
+    } catch (e) {
         res.json(e)
     }
 })
 
-router.delete('/',async (req,res)=>{
-    var id=req.o
-    try{
-        deletedOrderdo=await deleteUserOrder(id)
+router.delete('/', async (req, res) => {
+    var id = req.o
+    try {
+        deletedOrderdo = await deleteUserOrder(id)
         res.json("deleted all order")
-    }catch(e){
+    } catch (e) {
         res.json(e)
     }
 })
 
-module.exports=router
+module.exports = router

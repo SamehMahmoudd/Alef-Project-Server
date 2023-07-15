@@ -5,7 +5,7 @@ const {
   getAllCategories,
   addCategory,
   deleteCategory,
-} = require("../Controllers/categoryController");
+} = require("../controllers/categoryController");
 ////////////////////////GET ALL CATEGORIES////////////////////////
 router.get("/", async (req, res) => {
   try {
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 ////////////////////////ADD NEW CATEGORY////////////////////////
 router.post("/", async (req, res) => {
   let category = req.body;
-  
+
   try {
     let addedCategory = await addCategory(category);
     res.json(`new category added successfully ${addedCategory}`);

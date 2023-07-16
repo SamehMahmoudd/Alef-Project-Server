@@ -19,12 +19,12 @@ const categoryRouter = require('./routers/categoryRouter')
 app.use(express.json())
 app.use(cors())
 
-app.use('/category', categoryRouter)
+app.use('/categories', categoryRouter)
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
-app.use('/orders', extractUser, ordersRouter)
-app.use('/authors', extractUser, authorsRouter);
-app.use('/books', extractUser, booksRouter)
+app.use('/orders', ordersRouter)
+app.use('/authors', authorsRouter);
+app.use('/books', booksRouter)
 
 
 

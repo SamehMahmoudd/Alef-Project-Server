@@ -33,12 +33,13 @@ const bookSchema = new mongoose.Schema({
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Author',
+    ref: 'authors',
     required: true,
   },
 
   category: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'categories',
     required: true,
 
   },
@@ -51,6 +52,6 @@ const bookSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-const bookModel = mongoose.model('Book', bookSchema);
+const bookModel = mongoose.model('books', bookSchema);
 
 module.exports = bookModel;

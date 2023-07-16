@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router();
-const { getAllBooks, getBookByID, createNewBook, updateBook, deleteBook } = require('../controllers/bookControllers')
+const { getAllBooks, getBookByID, createNewBook, updateBook, deleteBook } = require('../Controllers/bookControllers')
 
 //get all books
 router.get('/', async (req, res, next) => {
 
     try {
         let allBooks = await getAllBooks()
+        console.log(allBooks);
         res.json(allBooks)
     }
     catch (err) {

@@ -26,7 +26,7 @@ const bookSchema = new mongoose.Schema({
     type: String,
   },
 
-  stock: {
+  bookStock: {
     type: Number,
     required: true,
     default: 2

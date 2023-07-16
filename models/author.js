@@ -4,14 +4,10 @@ const authorSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
-  },
-  books: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Book'
-  }]
+  }
 }, 
 { timestamps: true });
 
-const authorModel = mongoose.model('Author', authorSchema);
+const authorModel = mongoose.model('authors', authorSchema);
 
 module.exports = authorModel;

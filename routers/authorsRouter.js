@@ -5,8 +5,8 @@ var Router = express.Router();
 
 ////////////////////////////////////////////
 Router.post("/", async (req, res) => {
-    console.log(req.body) ;
-    var author = req.body ;
+    console.log(req.body);
+    var author = req.body;
     try {
         var newAuthor = await createAuthor(author);
         res.json(newAuthor);
@@ -24,10 +24,10 @@ Router.get("/", async (req, res) => {
     }
 });
 
-Router.patch("/:id",async (req, res) => {
+Router.patch("/:id", async (req, res) => {
     console.log(req.body);
-    var { name } = req.body ;
-    var { id } = req.params ;
+    var { name } = req.body;
+    var { id } = req.params;
     try {
         var UpdatedAuthor = await editAuthorById(id, name);
         res.json(UpdatedAuthor);
@@ -37,9 +37,9 @@ Router.patch("/:id",async (req, res) => {
 });
 
 
-Router.delete("/:id",async (req, res) => {
-    var id = req.params.id ;
-    try{
+Router.delete("/:id", async (req, res) => {
+    var id = req.params.id;
+    try {
         var deletedAuthor = await deleteAuthorById(id);
         res.json(deletedAuthor);
     } catch (e) {
@@ -47,4 +47,4 @@ Router.delete("/:id",async (req, res) => {
     }
 });
 
-module.exports = Router ;
+module.exports = Router;

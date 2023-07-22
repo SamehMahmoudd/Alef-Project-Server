@@ -5,6 +5,7 @@ const authorSchema = new mongoose.Schema({
     type: String,
     required: true
   }
+
 }, 
 { timestamps: true });
 

@@ -2,29 +2,22 @@ const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema(
   {
-    productId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "Book",
-    },
     rating: {
       type: Number,
       min: 1,
       max: 5,
+      default: 0,
       required: true,
     },
     comment: {
       type: String,
       required: true,
     },
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    //   ref: "User",
-    // },
-    // image: {
-    //   type: String,
-    // },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "users",
+    }
   },
   { timestamps: true }
 );

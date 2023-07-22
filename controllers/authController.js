@@ -27,7 +27,7 @@ const authController = {
         { id: user.id, userName: user.userName },
         process.env.SECRET
       );
-      return res.status(200).json({ message: 'Login Successful', token, userName: user.userName });
+      return res.status(200).json({ message: 'Login Successful', token, userName: user.userName , userId : user.id});
     } catch (err) {
       console.log(err);
     }

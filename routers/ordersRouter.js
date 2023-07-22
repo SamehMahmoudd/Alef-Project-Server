@@ -1,9 +1,11 @@
 var express = require('express')
-var { saveOrder, getOrderById, getAllOrders, EditOrderById, deleteOrder, deleteUserOrder } = require('../controllers/ordersController')
+var { saveOrder, getOrderById, getAllOrders, EditOrderById, deleteOrder, deleteUserOrder } = require('../Controllers/ordersController')
 var router = express.Router()
+var ObjectId = require('mongodb').ObjectId;
 
 router.post("/", async (req, res) => {
     var order = req.body
+    order.user= new ObjectId(order.user)
 
     try {
         var newOrder = await saveOrder(order)

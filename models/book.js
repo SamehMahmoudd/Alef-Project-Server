@@ -1,8 +1,13 @@
 const mongoose = require('mongoose')
 const bookSchema = new mongoose.Schema({
+
   bookTitle: {
     type: String,
     required: true,
+  },
+  bookTitleAR:  {
+    type: String,
+    
   },
   bookPages: {
     type: Number,
@@ -21,8 +26,14 @@ const bookSchema = new mongoose.Schema({
 
 
   },
+  
+
 
   description: {
+    type: String,
+  },
+  
+  descriptionAR: {
     type: String,
   },
 
@@ -31,6 +42,7 @@ const bookSchema = new mongoose.Schema({
     required: true,
     default: 2
   },
+
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'authors',

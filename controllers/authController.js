@@ -6,6 +6,7 @@ const authController = {
   async register(req, res) {
     try {
       const { password, ...userData } = req.body;
+      
       const hashedPassword = await bcrypt.hash(password, 10)
       const user = await userModel.create({ password: hashedPassword, ...userData });
       return res.status(200).json({ message: 'Register Successful' });
@@ -27,7 +28,7 @@ const authController = {
         { id: user.id, userName: user.userName },
         process.env.SECRET
       );
-      return res.status(200).json({ message: 'Login Successful', token, userName: user.userName });
+      return res.status(200).json({ message: 'Login Successful', token, ID: user._id });
     } catch (err) {
       console.log(err);
     }

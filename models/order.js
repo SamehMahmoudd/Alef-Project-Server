@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const orderSchema = new mongoose.Schema({
   user: {type: mongoose.Schema.Types.ObjectId,
-    ref: "User",  
+    ref: "users",  
   },
 
   totalPrice: {type: Number,required: true },
@@ -18,6 +18,9 @@ const orderSchema = new mongoose.Schema({
       quantity:     { type: Number },
     },
   ],
+  paymentMethod:{
+    type:String, required:true
+  }
 });
   
 const orderModel = mongoose.model('Order', orderSchema);

@@ -1,11 +1,12 @@
 var OrderModel=require('../models/order')
 
+
 const ordersController = {
   async saveOrder(order) {
-    return  OrderModel.create(order)
+    return  (await OrderModel.create(order)).populate('user')
   },
   async getAllOrders(){
-    return await OrderModel.find({});
+    return await OrderModel.find({}).populate('user');
   },
   
   async getOrderById(id) {

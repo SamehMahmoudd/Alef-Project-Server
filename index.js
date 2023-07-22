@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/categories', categoryRouter);
-app.use('/users', usersRouter);
+app.use('/users', extractUser , usersRouter);
 app.use('/auth', authRouter);
 app.use('/orders',  ordersRouter);
 app.use('/authors',  authorsRouter);

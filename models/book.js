@@ -1,4 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const reviewModel = require('./review');
+
+
 const bookSchema = new mongoose.Schema({
 
   bookTitle: {
@@ -23,8 +26,13 @@ const bookSchema = new mongoose.Schema({
   },
   bookImage: {
     type: String,
+  },
 
-
+  bookReviews:[reviewModel.schema],
+  
+  numReviews: {
+    type: Number,
+    default: 0,
   },
   
 
@@ -53,8 +61,8 @@ const bookSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref:'categories',
     required: true,
-
   },
+  
   language: {
     type: String,
 

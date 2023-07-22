@@ -3,7 +3,7 @@ const authorModel = require("../models/author");
 const categoryModel = require("../models/category");
 
 function getAllBooks() {
-  return bookModel.find().populate('author').populate('category')
+  return bookModel.find().populate("author", "name").populate("bookReviews.user","firstName lastName image")
 }
 
 function getBookByID(id) {

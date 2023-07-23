@@ -13,3 +13,4 @@ function deleteCategory(id) {
 }
 
 module.exports = { getAllCategories, addCategory, deleteCategory };
+

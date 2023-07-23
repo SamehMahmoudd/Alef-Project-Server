@@ -14,17 +14,19 @@ const ordersRouter = require('./routers/ordersRouter');
 const booksRouter = require('./routers/booksRouter');
 const authorsRouter = require('./routers/authorsRouter');
 const categoryRouter = require('./routers/categoryRouter')
+const filterRouter=require('./routers/filterRouter')
 
 
 app.use(express.json())
 app.use(cors())
 
-app.use('/category', categoryRouter)
+app.use('/categories', categoryRouter)
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
-app.use('/orders', extractUser, ordersRouter)
-app.use('/authors', extractUser, authorsRouter);
-app.use('/books', extractUser, booksRouter)
+app.use('/orders',  ordersRouter)
+app.use('/authors',  authorsRouter);
+app.use('/books',  booksRouter)
+app.use('/filter'   , filterRouter)
 
 
 

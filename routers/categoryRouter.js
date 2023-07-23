@@ -5,7 +5,7 @@ const {
   getAllCategories,
   addCategory,
   deleteCategory,
-} = require("../controllers/categoryController");
+} = require("../Controllers/categoryController");
 ////////////////////////GET ALL CATEGORIES////////////////////////
 router.get("/", async (req, res) => {
   try {

@@ -1,6 +1,6 @@
 const categoryModel = require("../models/category");
 
-function getAllCategories() {
+async function getAllCategories() {
   return categoryModel.find();
 }
 

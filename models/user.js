@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    firstName:{
+    fristName:{
         type: String,
         required: true,
       },
@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
       },
       image: {
         type: String,
-        required: true,
+        // required: true,
       },
       country:{
         type: String,

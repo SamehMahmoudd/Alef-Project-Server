@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const foundUser = await controllers.getUsers(id);
+    const foundUser = await controllers.getUser(id);
 
     if (foundUser) {
       return res.status(200).json({ message: `User Found Successfully`, user: foundUser });

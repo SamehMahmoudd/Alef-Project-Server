@@ -10,8 +10,8 @@ const orderSchema = new mongoose.Schema({
   items: [
     {
       book:{
-         cover_image: { type: String },
-         title: { type: String  },
+         bookImage: { type: String },
+         bookTitle: { type: String  },
          price: { type: Number },
       },
       

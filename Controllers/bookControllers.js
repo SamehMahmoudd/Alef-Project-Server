@@ -3,7 +3,7 @@ const authorModel = require("../models/author");
 const categoryModel = require("../models/category");
 
 function getAllBooks() {
-  return bookModel.find().populate("author", "name").populate("bookReviews.user","firstName lastName image")
+  return bookModel.find().populate("author", "name").populate("bookReviews.user","firstName lastName image").populate('category')
   // return bookModel.find().populate("author", "name").populate({path:"bookReviews.user",populate:{path:"firstName"}})
   // return bookModel.find().populate("author", "name").populate(bookReviews.user,{populate:{path:"firstName"}})
 }

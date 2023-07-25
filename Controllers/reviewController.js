@@ -1,6 +1,5 @@
 const reviewModel = require("../models/review");
 const bookModel = require("../models/book");
-const userModel = require("../models/user");
 
 // //* desc   Get all reviews
 // //* route  GET /product/:id/review
@@ -11,6 +10,10 @@ function addReviews(review) {
 
 async function getAllReviews() {
   return reviewModel.find();
+}
+
+async function getBookReviews(bookId) {
+  return bookModel.findById(bookId).populate('bookReviews.user');
 }
 
 function deleteReviews(id) {
@@ -47,4 +50,5 @@ module.exports = {
   addReviews,
   createBookReview,
   deleteReviews,
+  getBookReviews
 };

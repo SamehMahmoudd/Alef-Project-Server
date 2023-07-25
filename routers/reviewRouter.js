@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   getAllReviews,
   addReviews,
+  getBookReviews,
   deleteReviews,
   createBookReview,
 } = require("../Controllers/reviewController");
@@ -37,6 +38,19 @@ router.get("/", async (req, res) => {
 router.post('/book/:id',createBookReview);
 
 ////////////////////////Delete Reviews BY ID////////////////////////
+
+router.get("/book/:id", async (req, res) => {
+  let id = req.params.id;
+  console.log("fetching reviews");
+  try {
+    let allReviews = await getBookReviews(id);
+    res.json(allReviews);
+  } catch (err) {
+    res.send(err);
+  }
+});
+
+//////////////////////////////////////////////////////////////////////
 router.delete("/:id", async (req, res) => {
   let id = req.params.id;
   try {

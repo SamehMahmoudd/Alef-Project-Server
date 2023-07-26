@@ -35,10 +35,7 @@ const userSchema = new mongoose.Schema({
       subscribe:{
         type: String,
       },
-      orders: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order'
-      }],
+      
       cart: [{
         productId: {
           type: mongoose.Schema.Types.ObjectId,

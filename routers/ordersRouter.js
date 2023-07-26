@@ -1,5 +1,5 @@
 var express = require('express')
-var { saveOrder, getOrderById, getAllOrders, EditOrderById, deleteOrder, deleteUserOrder } = require('../Controllers/ordersController')
+var { saveOrder, getOrderById, getAllOrders, EditOrderById, deleteOrder, deleteUserOrder ,getUserOrders} = require('../Controllers/ordersController')
 var router = express.Router()
 var ObjectId = require('mongodb').ObjectId;
 
@@ -68,5 +68,24 @@ router.delete('/', async (req, res) => {
         res.json(e)
     }
 })
+
+router.get('/user/:id',async (req,res)=>{
+
+    let id=req.params.id
+
+    try{
+
+        let userOrders= await getUserOrders(id)
+        res.json(userOrders)
+
+    }
+    catch(err){
+        res.json(err)
+
+    }
+
+
+})
+
 
 module.exports = router

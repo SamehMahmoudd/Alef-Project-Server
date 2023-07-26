@@ -24,6 +24,11 @@ const ordersController = {
   async deleteUserOrder(id){
     return await OrderModel.deleteOne({userId:id})
   },
+
+  async getUserOrders (id){
+
+    return await OrderModel.find({user:id})
+  }
 }
 
 module.exports = ordersController

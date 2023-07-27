@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
           ref: 'Book'
         },
         quantity: {
-          type: Number,
+          type: Number, 
           default: 1
         }
       }]

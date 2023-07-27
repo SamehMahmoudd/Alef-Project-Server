@@ -18,11 +18,12 @@ router.post("/", async (req, res) => {
 })
 
 router.patch('/:id', async (req, res) => {
-    var title = req.body
+    var status = req.body
+   
     var id = req.params.id
     try {
-        var edited = await EditOrderById(id, title)
-
+        var edited = await EditOrderById(id, status.value)
+        console.log(edited)
         res.json(edited)
     } catch (e) {
         res.json(e)
@@ -53,7 +54,7 @@ router.delete('/:id', async (req, res) => {
     var id = req.body.params
     try {
         deletedTodo = await deleteOrder(id)
-        res.json("deleted")
+        res.json(deletedTodo)
     } catch (e) {
         res.json(e)
     }

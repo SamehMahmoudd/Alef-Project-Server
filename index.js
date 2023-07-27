@@ -5,9 +5,11 @@ const cors = require('cors')
 dotenv.config();
 
 const { extractUser } = require('./middleware/middleware');
+const { extractAdmin } = require('./middleware/middleware');
 
 const app = express()
-
+const adminRouter = require('./routers/adminRouter')
+const manageRouter = require('./routers/authAdminRouter')
 const usersRouter = require('./routers/usersRouter')
 const authRouter = require('./routers/authRouter')
 const ordersRouter = require('./routers/ordersRouter');
@@ -22,6 +24,8 @@ const reviewRouter = require('./routers/reviewRouter');
 app.use(express.json())
 app.use(cors())
 
+app.use('/admins',  adminRouter);
+app.use('/admin', manageRouter);
 app.use('/categories', categoryRouter);
 app.use('/users',  usersRouter);
 app.use('/auth', authRouter);

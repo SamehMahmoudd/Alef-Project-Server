@@ -13,12 +13,12 @@ const ordersController = {
     return await OrderModel.findById(id)
   },
   
-  async  EditOrderById(id){
-    return await OrderModel.findByIdAndUpdate(id)
+  async  EditOrderById(id ,status){
+    return await OrderModel.updateOne({_id:id},{status})
   },
   
   async deleteOrder(id){
-    return await OrderModel.deleteOne({_id:id})
+    return await OrderModel.deleteOne(id)
   },
   
   async deleteUserOrder(id){

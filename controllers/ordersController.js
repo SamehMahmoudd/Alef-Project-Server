@@ -6,7 +6,7 @@ const ordersController = {
     return  (await OrderModel.create(order)).populate('user')
   },
   async getAllOrders(){
-    return await OrderModel.find({}).populate('user');
+    return await OrderModel.find({}).populate('user').populate("bookId");
   },
   
   async getOrderById(id) {

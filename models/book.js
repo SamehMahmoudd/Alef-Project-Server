@@ -1,8 +1,16 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const reviewModel = require('./review');
+
+
 const bookSchema = new mongoose.Schema({
+
   bookTitle: {
     type: String,
     required: true,
+  },
+  bookTitleAR:  {
+    type: String,
+    
   },
   bookPages: {
     type: Number,
@@ -18,11 +26,22 @@ const bookSchema = new mongoose.Schema({
   },
   bookImage: {
     type: String,
-
-
   },
 
+  bookReviews:[reviewModel.schema],
+  
+  numReviews: {
+    type: Number,
+    default: 0,
+  },
+  
+
+
   description: {
+    type: String,
+  },
+  
+  descriptionAR: {
     type: String,
   },
 
@@ -31,6 +50,7 @@ const bookSchema = new mongoose.Schema({
     required: true,
     default: 2
   },
+
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'authors',
@@ -41,8 +61,8 @@ const bookSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref:'categories',
     required: true,
-
   },
+  
   language: {
     type: String,
 

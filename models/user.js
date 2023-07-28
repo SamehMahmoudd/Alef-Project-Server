@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
       },
       image: {
         type: String,
-        required: true,
+        // required: true,
       },
       country:{
         type: String,
@@ -35,17 +35,14 @@ const userSchema = new mongoose.Schema({
       subscribe:{
         type: String,
       },
-      orders: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order'
-      }],
+      
       cart: [{
         productId: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Book'
         },
         quantity: {
-          type: Number,
+          type: Number, 
           default: 1
         }
       }]

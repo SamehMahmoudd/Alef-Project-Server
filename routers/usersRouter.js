@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const controllers = require('../controllers/usersController');
+const controllers = require('../Controllers/usersController');
 
 /* -------------------------------------------------------------------------- */
 /*                                listing users                               */
@@ -49,7 +49,7 @@ router.patch("/:id", async (req, res) => {
   let newData = req.body;
   let id = req.params.id
   try {
-    const updatedUser = await controllers.editUsers(id, newData);
+    const updatedUser = await controllers.editUser(id, newData);
     if (updatedUser !== null) {
       res.status(200).json({ message: `user with ID:${id} edited successfully`, user: updatedUser });
     }

@@ -42,7 +42,9 @@ router.post("/", async (req, res, next) => {
     // res.send(`new book created : ${createdBook}`)
     res.json({ message: `new book created`, createdBook });
   } catch (err) {
+
     res.send(err);
+    
   }
 });
 

@@ -33,7 +33,7 @@ router.patch('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
 
     try {
-        orders = await getAllOrders()
+       let orders = await getAllOrders()
         res.json(orders)
     } catch (e) {
         res.json(e)
@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     var id = req.body.params
     try {
-        deletedTodo = await deleteOrder(id)
+       let deletedTodo = await deleteOrder(id)
         res.json(deletedTodo)
     } catch (e) {
         res.json(e)
@@ -63,7 +63,7 @@ router.delete('/:id', async (req, res) => {
 router.delete('/', async (req, res) => {
     var id = req.o
     try {
-        deletedOrderdo = await deleteUserOrder(id)
+       let deletedOrderdo = await deleteUserOrder(id)
         res.json("deleted all order")
     } catch (e) {
         res.json(e)
